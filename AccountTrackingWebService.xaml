@@ -1,0 +1,36 @@
+﻿<UserControl
+             x:Name="AccountTracking"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BOA.UI.Banking.Customer"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" x:Class="BOA.UI.Banking.Customer.AccountTrackingWebService"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Width="940" Height="588">
+    <Grid ScrollViewer.HorizontalScrollBarVisibility="Auto" Background="#FFE7E7E7">
+        <Grid HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="941" Margin="0,0,-0.2,0">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF343333" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <dx:SimpleButton x:Name="btnGetir" Content="Getir" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="80" Glyph="{dx:DXImage SvgImages/PDF Viewer/Preview.svg}" HorizontalContentAlignment="Left" FontWeight="Bold" Click="btnGetir_Click"/>
+        </Grid>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left"  CanUserAddRows="False" Height="342" Margin="41,207,0,0" VerticalAlignment="Top" Width="838"/>
+        <GroupBox x:Name="groupBox" Header="Müşteri Bilgileri" HorizontalAlignment="Left" Height="123" Margin="41,66,0,0" VerticalAlignment="Top" Width="342" Foreground="Black" FontWeight="Bold">
+            <Grid HorizontalAlignment="Left" Width="322" Margin="0,-8,-3.6,-3.8" Height="99" VerticalAlignment="Top">
+                <TextBox x:Name="tbxHesapNo" Text="{Binding HesapNo,Mode=TwoWay,ElementName=AccountTracking}" HorizontalAlignment="Left" Height="23" Margin="162,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="Black"/>
+
+                <TextBox x:Name="tbxHesapEkNo" Text="{Binding HesapEkNo,Mode=TwoWay,ElementName=AccountTracking}" HorizontalAlignment="Left" Height="23" Margin="162,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="Black"/>
+                <Label x:Name="label1" Content="Hesap Numarası" Margin="0,7,205,0" Foreground="Black" HorizontalAlignment="Right" Width="112" Height="26" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="label1_Copy" Content="Hesap EK Numarası" Margin="0,37,205,0" Foreground="Black" HorizontalAlignment="Right" Width="112" Height="24" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="label1_Copy1" Content="İşlem Tarihi" Margin="0,65,214,0" Foreground="Black" HorizontalAlignment="Right" Width="103" Height="24" VerticalAlignment="Top" FontWeight="Bold" BorderBrush="Black"/>
+                <DatePicker x:Name="dateTarih"  HorizontalAlignment="Left" Margin="162,65,0,0" VerticalAlignment="Top" Width="120"/>
+                <!--SelectedDate="{Binding  IslemTarihi,ElementName=control,Mode=TwoWay}"-->
+            </Grid>
+        </GroupBox>
+
+    </Grid>
+</UserControl>
