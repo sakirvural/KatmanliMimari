@@ -1,0 +1,76 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BOA.UI.Banking.CustomerMoneyCheck"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" x:Class="BOA.UI.Banking.CustomerMoneyCheck.CustomerMoneyCheck"
+             mc:Ignorable="d" 
+             d:DesignHeight="592" d:DesignWidth="941" Loaded="UserControl_Loaded">
+    <Grid x:Name="userEkran" Width="940.8" Height="591.2" Margin="-1,0,0.2,-0.4" Background="#FFE7E7E7">
+        <GroupBox x:Name="groupBox" Header="Para Çekme-Yatırma" HorizontalAlignment="Left" Height="246" Margin="36,60,0,0" VerticalAlignment="Top" Width="511" Foreground="Black" FontWeight="Bold">
+            <GroupBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </GroupBox.Background>
+            <Grid x:Name="gridGiris" Margin="0,0,-6.8,-6.6" Background="#FFE7E7E7">
+                <Label x:Name="label" Content="Hesap Numarası" Margin="32,33,0,0" VerticalAlignment="Top" Height="25" Foreground="Black" HorizontalAlignment="Left" Width="95"/>
+                <Label x:Name="label_Copy" Content="Döviz Cinsi" HorizontalAlignment="Left" Margin="313,8,0,0" VerticalAlignment="Top" Height="25" Width="95" Foreground="Black"/>
+                <TextBox x:Name="tbxHesapNo" HorizontalAlignment="Left" Height="23" Margin="182,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" BorderBrush="Black"/>
+                <ComboBox x:Name="cbxDoviz" HorizontalAlignment="Left" Margin="313,35,0,0" VerticalAlignment="Top" Width="102" BorderBrush="Black">
+
+                </ComboBox>
+                <TextBox x:Name="tbxHesapNoEk" HorizontalAlignment="Left" Height="23" Margin="254,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" BorderBrush="Black"/>
+                <Label x:Name="label1" Content="Müşteri No" HorizontalAlignment="Left" Margin="182,8,0,0" VerticalAlignment="Top" Width="66" Foreground="Black"/>
+                <Label x:Name="label1_Copy" Content="Ek-No" HorizontalAlignment="Left" Margin="255,8,0,0" VerticalAlignment="Top" Width="48" Foreground="Black"/>
+                <dx:SimpleButton x:Name="btnKontrol" Content="Kontrol" HorizontalAlignment="Left" Height="22" Margin="420,35,0,0" VerticalAlignment="Top" Width="70" Glyph="{dx:DXImage SvgImages/Dashboards/UpdateDataExtract.svg}" GlyphAlignment="Left" GlyphToContentOffset="-5" Padding="0,1,10,1" Click="btnKontrol_Click" FontWeight="Normal"/>
+                <Grid x:Name="gridKontrol" HorizontalAlignment="Left" Height="159" Margin="32,59,0,0" VerticalAlignment="Top" Width="461" IsEnabled="False">
+                    <Label x:Name="label_Copy1" Content="Para Tutarı" HorizontalAlignment="Left" Margin="0,0,0,50" VerticalAlignment="Bottom" Height="25" Width="95" Foreground="Black"/>
+                    <TextBox x:Name="tbxTutar" HorizontalAlignment="Left" Height="23" Margin="150,0,0,50" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120" BorderBrush="Black"/>
+                    <RadioButton x:Name="btnCek" Content="Para Çekme" HorizontalAlignment="Left" Margin="239,0,0,87" VerticalAlignment="Bottom" IsChecked="False" Checked="btnCek_Checked" Foreground="Black"/>
+                    <RadioButton x:Name="btnYatır" Content="Para Yatırma" HorizontalAlignment="Left" Margin="150,0,0,87" VerticalAlignment="Bottom" IsChecked="False" Checked="btnYatır_Checked" Foreground="Black"/>
+                    <Label x:Name="label_Copy4" Content="İşlem Türü" HorizontalAlignment="Left" Margin="0,0,0,87" VerticalAlignment="Bottom" Height="25" Width="95" Foreground="Black"/>
+                    <Label x:Name="label_Copy2" Content="Bakiyeniz" HorizontalAlignment="Left" Margin="150,0,0,122" VerticalAlignment="Bottom" Height="25" Width="66" Foreground="Black"/>
+                    <TextBox x:Name="tbxBakiye" HorizontalAlignment="Left" Height="23" Margin="210,0,0,124" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120" IsUndoEnabled="True" IsEnabled="False" SelectionBrush="White" BorderBrush="Black"/>
+                    <Grid x:Name="gridParaYatır" HorizontalAlignment="Left" Height="59" Margin="-7,103,0,-3" VerticalAlignment="Top" Width="445" IsEnabled="False">
+                        <Grid x:Name="gridTC" HorizontalAlignment="Left" Height="66" Margin="331,-24,0,0" VerticalAlignment="Top" Width="116" IsEnabled="False" >
+                            <Label x:Name="lblTC" Content="TC kimlik Numarası" HorizontalAlignment="Left" Margin="0,14,0,0" VerticalAlignment="Top" Height="25" Width="102" Foreground="Black"/>
+                            <TextBox x:Name="tbxTC" HorizontalAlignment="Left" Height="22" Margin="0,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114" BorderBrush="Black"/>
+                        </Grid>
+                        <Label x:Name="label_Copy3" Content="Yapan Kişi" HorizontalAlignment="Right" Margin="0,0,341,21" VerticalAlignment="Bottom" Height="25" Width="95" Foreground="Black"/>
+                        <Grid HorizontalAlignment="Left" Height="29" Margin="155,0,0,17" VerticalAlignment="Bottom" Width="166">
+                            <RadioButton x:Name="btnYetkinKisi" Content="Yetkin kişi" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="False" Checked="btnYetkin_Checked" Foreground="Black"/>
+                            <RadioButton x:Name="btnBaskaKisi" Content="Başka kişi" HorizontalAlignment="Left" Margin="89,0,0,0" VerticalAlignment="Top" IsChecked="False" Checked="btnBaska_Checked" Foreground="Black"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </GroupBox>
+        <Grid HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="940" Margin="0,0,-0.2,0">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="Silver" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <dx:SimpleButton x:Name="btnOnay"  Content="Onayla" HorizontalAlignment="Left" VerticalAlignment="Top" Width="101" Margin="22,0,0,0" Click="btnOnay_Click" IsEnabled="False" Height="29" Glyph="{dx:DXImage SvgImages/HybridDemoIcons/Tiles/HybridDemo_Salaried.svg}" FontWeight="Bold" HorizontalContentAlignment="Left"  />
+            <dx:SimpleButton x:Name="btnTemizle"  Content="Temizle" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="145,0,0,0" Click="btnTemizle_Click" Height="29" Glyph="{dx:DXImage SvgImages/HybridDemoIcons/BottomPanel/HybridDemo_Delete.svg}" HorizontalContentAlignment="Left" FontWeight="Bold"/>
+
+        </Grid>
+        <DataGrid x:Name="dataGridHistory" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalAlignment="Left" Height="203" Margin="36,336,0,0" VerticalAlignment="Top" Width="837" Visibility="Collapsed">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding historyID }"/>
+                <DataGridTextColumn Header="Müşteri No" Binding="{Binding accountNumber}"/>
+                <DataGridTextColumn Header="Müşteri EkNo" Binding="{Binding accountNumberExtra}"/>
+                <DataGridTextColumn Header="Açıklama" Binding="{Binding explanation }"/>
+                <DataGridTextColumn Header="Yapan Kişi" Binding="{Binding WhoPerson}"/>
+                <DataGridTextColumn Header="Transfer Tarihi" Binding="{Binding transferHistory}"/>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</UserControl>
