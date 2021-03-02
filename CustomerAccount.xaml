@@ -1,0 +1,53 @@
+﻿<UserControl
+             x:Name="CustomerAccountControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BOA.UI.Banking.CustomerAccount"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" x:Class="BOA.UI.Banking.CustomerAccount.CustomerAccount"
+             mc:Ignorable="d" 
+             d:DesignHeight="591" d:DesignWidth="940" Loaded="CustomerAccountControl_Loaded">
+    <Grid Width="940" Height="591.2" Background="#FFE7E7E7">
+        <Grid HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="940">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFB0AEAE" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <dx:SimpleButton x:Name="btnKayıt"  Content="Hesap Aç" HorizontalAlignment="Left" Width="111" Margin="10,0,0,0" Click="btnKayıt_Click" Glyph="{dx:DXImage SvgImages/Icon Builder/Business_Dollar.svg}" HorizontalContentAlignment="Left" FontWeight="Bold"/>
+            <dx:SimpleButton x:Name="btnSil" Content="Hesap Kapat" HorizontalAlignment="Left" Width="128" Margin="253,0,0,0" Click="btnSil_Click" Glyph="{dx:DXImage SvgImages/Dashboards/DeleteDataSource.svg}" FontWeight="Bold" HorizontalContentAlignment="Left"/>
+            <dx:SimpleButton x:Name="btnTemizle" Content=" Temizle" HorizontalAlignment="Left" Margin="134,0,0,0" VerticalAlignment="Top" Width="105" Height="29" Click="btnTemizle_Click" RenderTransformOrigin="0.536,0.7" Glyph="{dx:DXImage SvgImages/HybridDemoIcons/BottomPanel/HybridDemo_Delete.svg}" HorizontalContentAlignment="Left" FontWeight="Bold"/>
+        </Grid>
+        <GroupBox x:Name="groupBox" Header="Hesap" HorizontalAlignment="Left" Height="234" Margin="10,47,0,0" VerticalAlignment="Top" Width="434" Foreground="Black" FontWeight="Bold">
+            <Grid x:Name="gridGiris" Margin="0,0,-2.4,-0.4" Background="#FFE7E7E7">
+                <Label x:Name="label1" Content="Hesap Numarası" Foreground="Black" Margin="10,8,288,0" Height="35" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="label1_Copy" Content="Hesap-Ek Numara" Foreground="Black" Margin="10,67,288,0" Height="25" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="label1_Copy3" Content="Bakiye" Foreground="Black" Margin="10,107,266,0" Height="29" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="label1_Copy4" Content="Döviz Cinsi&#xA;" Foreground="Black" Margin="10,147,266,0" Height="24" VerticalAlignment="Top" FontWeight="Bold"/>
+                <TextBox x:Name="tbxHesapNo" Text="{Binding id, ElementName=CustomerAccountControl, Mode=TwoWay}" HorizontalAlignment="Left" Height="26" Margin="180,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" BorderBrush="Black"/>
+                <TextBox x:Name="tbxEkNo" HorizontalAlignment="Left" Height="26" Margin="181,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" IsEnabled="False" BorderBrush="Black"/>
+                <TextBox x:Name="tbxBakiye" HorizontalAlignment="Left" Height="26" Margin="181,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" IsEnabled="False" BorderBrush="Black"/>
+                <ComboBox  x:Name="cbxDoviz" HorizontalAlignment="Left" Margin="181,147,0,0" VerticalAlignment="Top" Width="140" Height="25" IsEnabled="False" BorderBrush="Black">
+                </ComboBox>
+                <dx:SimpleButton x:Name="btnKontrol" Content="Kontrol" HorizontalAlignment="Left" Height="25" Margin="325,9,0,0" VerticalAlignment="Top" Width="78" Glyph="{dx:DXImage SvgImages/Dashboards/UpdateDataExtract.svg}" GlyphAlignment="Left" GlyphToContentOffset="-5" Padding="0,1,10,1" Click="btnKontrol_Click"/>
+                <Label x:Name="lblSorgu" Content="" HorizontalAlignment="Left" Margin="181,39,0,0" VerticalAlignment="Top" Width="139" Foreground="White" HorizontalContentAlignment="Center"/>
+            </Grid>
+        </GroupBox>
+        <DataGrid x:Name="dataGrid" CanUserAddRows="False"  AutoGenerateColumns="False"  HorizontalAlignment="Left" Height="283" Margin="467,47,0,0" VerticalAlignment="Top" Width="445" SelectionChanged="dataGrid_SelectionChanged" Background="#FFE7E7E7" FontWeight="Bold">
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="active" Binding="{Binding active}"/>
+                <DataGridTextColumn Header="Hesap Numarası" Binding="{Binding accountNumber}"/>
+                <DataGridTextColumn Header="Hesap Numarası Ek " Binding="{Binding accountNumberExtra}"/>
+                <DataGridTextColumn Header="Bakiye" Binding="{Binding accountBalance}"/>
+                <DataGridTextColumn Header="Döviz cinsi" Binding="{Binding currencyType}"/>
+                <DataGridTextColumn Header="Açılış Tarihi" Binding="{Binding openDate}"/>
+                <DataGridTextColumn Header="Kapanış Tarihi" Binding="{Binding closeDate}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+    </Grid>
+</UserControl>
